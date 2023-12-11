@@ -1,0 +1,44 @@
+<div class="flex-col w-200 md:flex hidden">
+  <div class="font-bold">Filter results</div>
+  <div class="mt-6">
+    <div class="text-xs text-gray-500">CATEGORY</div>
+    <div class="mt-5">All Categories</div>
+    <div class="flex items-center cursor-pointer mt-2 {{filter[0] ? 'text-gray-500': ''}}" (click)="newFilter(0)">Tech & Innovation <img src="assets/arrow-bottom-1-svgrepo-com.svg" alt="" height="30" width="30"/></div>
+    <div *ngIf="filter[0]">
+      <div class="pl-6 cursor-pointer {{tech_filter[0] ? 'text-red-600' : ''}}" (click)="handle(0, 0)">Audio</div>
+      <div class="pl-6 cursor-pointer {{tech_filter[1] ? 'text-red-600' : ''}}" (click)="handle(0, 1)">Camera Gear</div>
+      <div class="pl-6 cursor-pointer {{tech_filter[2] ? 'text-red-600' : ''}}" (click)="handle(0, 2)">Education</div>
+      <div class="pl-6 cursor-pointer {{tech_filter[3] ? 'text-red-600' : ''}}" (click)="handle(0, 3)">Energy & Green Tech</div>
+      <div class="pl-6 cursor-pointer {{tech_filter[4] ? 'text-red-600' : ''}}" (click)="handle(0, 4)">Fashion & Wearables</div>
+      <div class="pl-6 cursor-pointer {{tech_filter[5] ? 'text-red-600' : ''}}" (click)="handle(0, 5)">Food & Beverages</div>
+      <div class="pl-6 cursor-pointer {{tech_filter[6] ? 'text-red-600' : ''}}" (click)="handle(0, 6)">Health & Fitness</div>
+      <div class="pl-6 cursor-pointer {{tech_filter[7] ? 'text-red-600' : ''}}" (click)="handle(0, 7)">Home</div>
+      <div class="pl-6 cursor-pointer {{tech_filter[8] ? 'text-red-600' : ''}}" (click)="handle(0, 8)">Phones & Accessories</div>
+      <div class="pl-6 cursor-pointer {{tech_filter[9] ? 'text-red-600' : ''}}" (click)="handle(0, 9)">Productivity</div>
+      <div class="pl-6 cursor-pointer {{tech_filter[10] ? 'text-red-600' : ''}}" (click)="handle(0, 10)">Transportation</div>
+      <div class="pl-6 cursor-pointer {{tech_filter[11] ? 'text-red-600' : ''}}" (click)="handle(0, 11)">Travel & Outdoors</div>
+    </div>
+    <div class="flex items-center cursor-pointer mt-2 {{filter[1] ? 'text-gray-500': ''}}" (click)="newFilter(1)">Creative Works <img src="assets/arrow-bottom-1-svgrepo-com.svg" alt="" height="30" width="30"/></div>
+    <div *ngIf="filter[1]">
+      <div class="pl-6 cursor-pointer {{creat_filter[0] ? 'text-red-600' : ''}}" (click)="handle(1, 12)">Art</div>
+      <div class="pl-6 cursor-pointer {{creat_filter[1] ? 'text-red-600' : ''}}" (click)="handle(1, 13)">Comics</div>
+      <div class="pl-6 cursor-pointer {{creat_filter[2] ? 'text-red-600' : ''}}" (click)="handle(1, 14)">Dance & Theater</div>
+      <div class="pl-6 cursor-pointer {{creat_filter[3] ? 'text-red-600' : ''}}" (click)="handle(1, 15)">Film</div>
+      <div class="pl-6 cursor-pointer {{creat_filter[4] ? 'text-red-600' : ''}}" (click)="handle(1, 16)">Music</div>
+      <div class="pl-6 cursor-pointer {{creat_filter[5] ? 'text-red-600' : ''}}" (click)="handle(1, 17)">Photography</div>
+      <div class="pl-6 cursor-pointer {{creat_filter[6] ? 'text-red-600' : ''}}" (click)="handle(1, 18)">Podcasts, Blogs & Vlogs</div>
+      <div class="pl-6 cursor-pointer {{creat_filter[7] ? 'text-red-600' : ''}}" (click)="handle(1, 19)">Tabletop Games</div>
+      <div class="pl-6 cursor-pointer {{creat_filter[8] ? 'text-red-600' : ''}}" (click)="handle(1, 20)">Video Games</div>
+      <div class="pl-6 cursor-pointer {{creat_filter[9] ? 'text-red-600' : ''}}" (click)="handle(1, 21)">Web Series & TV Shows</div>
+      <div class="pl-6 cursor-pointer {{creat_filter[10] ? 'text-red-600' : ''}}" (click)="handle(1, 22)">Writing & Publishing</div>
+    </div>
+    <div class="flex items-center cursor-pointer mt-2 {{filter[2] ? 'text-gray-500': ''}}" (click)="newFilter(2)">Community Projects <img src="assets/arrow-bottom-1-svgrepo-com.svg" alt="" height="30" width="30"/></div>
+    <div *ngIf="filter[2]">
+      <div class="pl-6 cursor-pointer {{com_filter[0] ? 'text-red-600' : ''}}" (click)="handle(2, 23)">Culture</div>
+      <div class="pl-6 cursor-pointer {{com_filter[1] ? 'text-red-600' : ''}}" (click)="handle(2, 24)">Environment</div>
+      <div class="pl-6 cursor-pointer {{com_filter[2] ? 'text-red-600' : ''}}" (click)="handle(2, 25)">Human Rights</div>
+      <div class="pl-6 cursor-pointer {{com_filter[3] ? 'text-red-600' : ''}}" (click)="handle(2, 26)">Local Businesses</div>
+      <div class="pl-6 cursor-pointer {{com_filter[4] ? 'text-red-600' : ''}}" (click)="handle(2, 27)">Wellness</div>
+    </div>
+  </div>
+</div>
