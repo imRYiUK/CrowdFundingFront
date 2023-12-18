@@ -6,7 +6,7 @@
         <img src="assets/arrow-bottom-1-svgrepo-com.svg" alt="" height="30" width="30"/>
       </div>
       <div class="pr-10 pt-2">
-        <img src="assets/user-svgrepo-com.svg" alt="" height="30" width="30"/>
+        <img class="cursor-pointer" (click)="disconnect()" src="assets/out-administration-control-edit-option-setting-svgrepo-com.svg" alt="" height="30" width="30"/>
       </div>
     </div>
     <div class="w-full flex flex-col mb-2 justify-center font-semibold h-60 text-center bg-explore bg-cover text-white text-2xl bg-no-repeat">
@@ -16,7 +16,7 @@
     <div class="w-full ">
       <div class="flex justify-center mt-12">
         <app-filter></app-filter>
-        <div class="flex-1 md:max-w-576 lg:max-w-840">
+        <div class="flex-1 md:max-w-576 lg:max-w-840 flex flex-col">
           <app-search></app-search>
           <app-filter-setting></app-filter-setting>
           <app-campaigns></app-campaigns>

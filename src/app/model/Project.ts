@@ -8,6 +8,7 @@ export interface Project {
   description: string,
   fundType: string,
   fundTarget: number,
+  actualFund: number,
   fundStart: Date,
   fundEnd: Date,
   createdAt: Date,

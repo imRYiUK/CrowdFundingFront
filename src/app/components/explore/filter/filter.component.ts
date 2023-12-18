@@ -5,6 +5,8 @@ import {LocalService} from "../../../services/local.service";
 import {UserService} from "../../../services/user.service";
 import {lastValueFrom} from "rxjs";
 import {Project} from "../../../model/Project";
+import {DataService} from "../../../services/data.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-filter',
@@ -17,14 +19,48 @@ import {Project} from "../../../model/Project";
 })
 export class FilterComponent implements OnInit {
   filter: boolean[];
-  com_filter: boolean[];
-  tech_filter: boolean[];
-  creat_filter: boolean[];
+  categories: any = {
+    1: "all",
+    2: "tech_innovation",
+    3: "audio",
+    4: "camera_gear",
+    5: "education",
+    6: "energy_green_tech",
+    7: "fashion_wearables",
+    8: "food_beverages",
+    9: "health_fitness",
+    10: "home",
+    11: "phones_accessories",
+    12: "productivity",
+    13: "transportation",
+    14: "travel_outdoors",
+    15: "creative_works",
+    16: "art",
+    17: "comics",
+    18: "dance_theater",
+    19: "film",
+    20: "music",
+    21: "photography",
+    22: "podcasts_blogs_vlogs",
+    23: "tabletop_games",
+    24: "video_games",
+    25: "web_series_tv_shows",
+    26: "writing_publishing",
+    27: "community_projects",
+    28: "culture",
+    29: "environment",
+    30: "human_rights",
+    31: "local_businesses",
+    32: "wellness"
+    // Add more categories as needed
+  }
 
-  constructor(private filterService: UiService, private userService: UserService) {
-    this.com_filter = Array(12).fill(false);
-    this.tech_filter = Array(11).fill(false);
-    this.creat_filter = Array(5).fill(false);
+
+  constructor(private filterService: UiService,
+              private userService: UserService,
+              private dataService: DataService,
+              private router: Router,
+              private uiService: UiService) {
   }
 
   ngOnInit() {
@@ -39,28 +75,24 @@ export class FilterComponent implements OnInit {
       this.filter.fill(false);
       this.filter[num] = true
       this.filterService.changeFilter(this.filter);
-
-      this.tech_filter.fill(false);
-      this.creat_filter.fill(false);
-      this.com_filter.fill(false);
     }
   }
 
-  async handle(cate: number, num: number) {
+  async handle(num: number) {
+    let cat_name = this.categories[num];
 
-    if (cate == 0) {
-      this.tech_filter.fill(false);
-      this.tech_filter[num] = true;
-    } else if (cate == 1) {
-      this.creat_filter.fill(false);
-      this.creat_filter[num-12] = true;
-    } else {
-      this.com_filter.fill(false);
-      this.com_filter[num-23] = true;
-    }
+    // if (ca)
 
-    const projects = await lastValueFrom(this.userService.getCampaignByFilter(num));
-    console.log(projects);
+    await lastValueFrom(this.userService.getCampaignByFilter(cat_name))
+      .then(async (resp) => {
+        this.dataService.fetchCampaign(resp);
+        // console.log(resp);
+        await this.router.navigate(["/explore", cat_name]);
+      }).catch(async (err) => {
+        // console.log(err)
+        this.dataService.fetchCampaign([]);
+        await this.router.navigate(["/explore", cat_name]);
+      });
   }
 
 }

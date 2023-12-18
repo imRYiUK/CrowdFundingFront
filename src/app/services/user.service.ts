@@ -14,6 +14,10 @@ export class UserService {
 
   }
 
+  getApiAuth () {
+    return this.apiUrlAuth;
+  }
+
   registerUser(user: User) {
     const headers = new HttpHeaders({'Content-Type': 'application/json'})
     return this.http.post<User>(this.apiUrlAuth + "/register", user, {headers})
@@ -24,13 +28,22 @@ export class UserService {
     return this.http.post<any>(this.apiUrlAuth + "/authenticate", identifiers, {headers})
   }
 
-  getCampaignByFilter(num: number) {
+  getCampaignByFilter(name: string) {
     const token = this.localService.getData("token");
       const headers = new HttpHeaders({
         'Content-Type': 'application/json',
         'Authorization': `Bearer ${token}`
       })
-      return this.http.get<Project[]>(this.apiUrl + "/project/" + num , {headers})
+      return this.http.get<Project[]>(this.apiUrl + "/project/public/" + name , {headers})
+  }
+
+  getCampaigns() {
+    const token = this.localService.getData("token");
+      const headers = new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${token}`
+      })
+      return this.http.get<Project[]>(this.apiUrl + "/project/public", {headers})
   }
 
 }
