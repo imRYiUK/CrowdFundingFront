@@ -13,6 +13,7 @@ export class CampaignComponent implements OnInit{
   @Input() project: Project;
   days: number;
   percent: string;
+  dyna_class: string;
 
 
   constructor() {
@@ -25,6 +26,9 @@ export class CampaignComponent implements OnInit{
     let date = new Date(String(letter).replaceAll('-', '/'))
     let now = new Date();
     this.percent = this.convertPercentageToTwelfth((this.project.actualFund / this.project.fundTarget) * 100);
+    console.log(this.percent)
+    // this.dyna_class =
+    console.log(this.dyna_class)
     // @ts-ignore
     const diffTime = Math.floor(Math.abs((now - date) / 1000 / 60 / 60 / 24));
     this.days = diffTime;

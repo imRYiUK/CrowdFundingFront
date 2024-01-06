@@ -14,18 +14,17 @@ export class AuthGuard {
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
   ): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    this.getter();
-    if (this.localService.getData("token")) {
-      console.log("what")
+    // this.getter();
+    const token = this.localService.getData("token")
+    if (token) {
+      console.log(`what + ${token}`)
       return true;
     } else {
+      this.authService.redirectUrl = state.url;
       return this.router.createUrlTree(['/login']);
     }
   }
 
-  async getter() {
-    return await this.authService.verify();
-  }
 }
 
 

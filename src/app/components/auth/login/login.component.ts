@@ -5,6 +5,7 @@ import {UserService} from "../../../services/user.service";
 import {lastValueFrom} from "rxjs";
 import {FormsModule} from "@angular/forms";
 import {LocalService} from "../../../services/local.service";
+import {AuthService} from "../../../services/auth.service";
 
 @Component({
   selector: 'app-login',
@@ -21,7 +22,10 @@ export class LoginComponent implements OnInit {
     @Input() username: string;
     @Input() password: string;
 
-    constructor(private router: Router, private userService: UserService, private localService: LocalService) {
+    constructor(private router: Router,
+                private userService: UserService,
+                private localService: LocalService,
+                private authService: AuthService) {
     }
 
   async ngOnInit() {
@@ -36,8 +40,10 @@ export class LoginComponent implements OnInit {
         this.localService.saveData("token", response.token);
         this.localService.saveData("user", JSON.stringify(response.userDTO));
         console.log(response)
-        const redirectUrl = '/explore';
-        await this.router.navigate([redirectUrl, "all"]);
+        const redirectUrl = this.authService.redirectUrl;
+        this.authService.redirectUrl = "";
+        await this.router.navigate([redirectUrl]);
       }
     }
 }
+

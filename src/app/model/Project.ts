@@ -14,5 +14,6 @@ export interface Project {
   createdAt: Date,
   user: User,
   category: Category,
+  isActive: Boolean,
   tags: Tag[]
 }

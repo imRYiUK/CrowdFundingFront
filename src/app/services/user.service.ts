@@ -17,6 +17,9 @@ export class UserService {
   getApiAuth () {
     return this.apiUrlAuth;
   }
+  getApi () {
+    return this.apiUrl;
+  }
 
   registerUser(user: User) {
     const headers = new HttpHeaders({'Content-Type': 'application/json'})

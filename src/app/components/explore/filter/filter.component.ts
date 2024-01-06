@@ -81,15 +81,11 @@ export class FilterComponent implements OnInit {
   async handle(num: number) {
     let cat_name = this.categories[num];
 
-    // if (ca)
-
     await lastValueFrom(this.userService.getCampaignByFilter(cat_name))
       .then(async (resp) => {
         this.dataService.fetchCampaign(resp);
-        // console.log(resp);
         await this.router.navigate(["/explore", cat_name]);
       }).catch(async (err) => {
-        // console.log(err)
         this.dataService.fetchCampaign([]);
         await this.router.navigate(["/explore", cat_name]);
       });

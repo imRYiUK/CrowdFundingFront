@@ -1,4 +1,4 @@
-<div *ngIf="!error_not_found"  class="mt-4 grid grid-cols-2 gap-2 w-full lg:grid-cols-3 md:max-w-576 lg:max-w-840">
+<div *ngIf="!error_not_found && !loading"  class="mt-4 grid grid-cols-2 gap-2 w-full lg:grid-cols-3 md:max-w-576 lg:max-w-840">
   <div *ngFor="let campaign of campaigns">
     <app-campaign [project]="campaign"></app-campaign>
   </div>

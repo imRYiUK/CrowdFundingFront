@@ -9,6 +9,7 @@ import {User} from "../../model/User";
 import {UserService} from "../../services/user.service";
 import {DataService} from "../../services/data.service";
 import {lastValueFrom} from "rxjs";
+import {NavComponent} from "../nav/nav.component";
 
 @Component({
   selector: 'app-explore',
@@ -17,7 +18,8 @@ import {lastValueFrom} from "rxjs";
     FilterComponent,
     SearchComponent,
     CampaignsComponent,
-    FilterSettingComponent
+    FilterSettingComponent,
+    NavComponent
   ],
   templateUrl: './explore.component.html',
   styleUrl: './explore.component.css'
@@ -46,10 +48,5 @@ export class ExploreComponent implements OnInit{
         // console.log(response.toString() + "me")
       }
     }
-  }
-
-  disconnect() {
-    this.localService.clearData();
-    this.router.navigate(["/login"]);
   }
 }
