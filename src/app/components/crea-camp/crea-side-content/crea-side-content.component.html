@@ -1,0 +1,61 @@
+<div *ngIf="name=='edit'" class="bg-gray-50 min-h-full h-max">
+  <form>
+    <div *ngIf="part=='basics'" class="pl-12">
+      <div class="flex flex-col mb-4">
+        <label class="font-medium text-base">Campaign Title</label>
+        <div class="font-thin text-sm">
+          What is the title of your campaign?
+        </div>
+        <input class="pl-2 border w-[600px] h-12 outline-none" placeholder="My Campaign Title"/>
+      </div>
+      <div class="flex flex-col mb-4">
+        <label class="font-medium text-base">Campaign Description</label>
+        <div class="font-thin text-sm">
+          Provide a short description that best describes your campaign to your audience.
+        </div>
+        <input class="pl-2 border w-[600px] h-12 outline-none" placeholder="My Campaign Description"/>
+      </div>
+      <div class="flex flex-col mb-4">
+        <label>Campaign Image</label>
+         <div class="font-thin text-sm">
+           Upload a square image that represents your campaign.<br/>
+           1080 x 1080 recommended resolution, 220 x 220 minimum resolution.
+        </div>
+        <input class="border w-[220px] h-[220px]" type="file" accept="image/*"/>
+      </div>
+      <div class="flex flex-col mb-4">
+        <label class="font-medium text-base">Location</label>
+        <div class="font-thin text-sm">
+          Choose the location where you are running the campaign. This location will be visible on your campaign page for your audience to see.
+        </div>
+        <input class="pl-2 border w-[600px] h-12 outline-none" placeholder="Location"/>
+      </div>
+      <div class="flex flex-col mb-4">
+        <label class="font-medium text-base">Category</label>
+        <div class="font-thin text-sm">
+          To help backers find your campaign, select a category that best represents your project.
+        </div>
+        <select class="w-200">
+          <option>Environnement</option>
+        </select>
+      </div>
+      <div class="flex flex-col mb-4">
+        <label class="font-medium text-base">Tags</label>
+        <div class="font-thin text-sm">
+          Enter up to five keywords that best describe your campaign. These tags will help with organization and discoverability.
+        </div>
+        <select class="w-200">
+          <option>Environnement</option>
+        </select>
+      </div>
+      <div class="flex flex-col mb-8">
+        <label>Campaign Duration</label>
+        <div class="font-thin text-sm">
+          How many days will you be running your campaign for? You can run a campaign for any number of days, with a 60 day duration maximum. Keep in mind that you will be able to extend as many times as you want up until the 60 day duration maximum!
+        </div>
+        <input type="number" class="border h-12 w-[50px]"/>
+      </div>
+    <div class="w-1 h-1"></div>
+    </div>
+  </form>
+</div>
